@@ -25,11 +25,11 @@ class LoginViewController: UIViewController {
     
     /// ログインボタンタップ時の処理
     @IBAction func onTapLoginButton(_ sender: Any) {
-        guard let url = URL(string: "https://test.altonotes.co.jp/login") else {
+        guard let url = URL(string: "https://apidemo.altonotes.co.jp/login") else {
             return
         }
 
-        let parmeter = "username=\(userNameTextField.text ?? "")&password=\(passwordTextField.text ?? "")"
+        let parmeter = "userName=\(userNameTextField.text ?? "")&password=\(passwordTextField.text ?? "")"
 
         let request = NSMutableURLRequest(url: url)
         request.httpMethod = "POST"
@@ -55,7 +55,7 @@ class LoginViewController: UIViewController {
 
             do {
                 let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any]
-                LoginViewController.accessToken = jsonObject?["access_token"] as? String
+                LoginViewController.accessToken = jsonObject?["accessToken"] as? String
 
                 let result = jsonObject?["result"] as? String
                 var message: String

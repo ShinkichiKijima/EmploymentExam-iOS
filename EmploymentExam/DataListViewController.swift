@@ -21,7 +21,7 @@ class DataListViewController: UIViewController {
     }
 
     func requestData() {
-        guard let url = URL(string: "https://test.altonotes.co.jp/data") else {
+        guard let url = URL(string: "https://apidemo.altonotes.co.jp/data") else {
             return
         }
 
